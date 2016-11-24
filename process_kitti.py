@@ -11,16 +11,17 @@ from scipy.misc import imread, imresize
 import hickle as hkl
 from kitti_settings import *
 
-
 desired_im_sz = (128, 160)
 categories = ['city', 'residential', 'road']
 
 # Recordings used for validation and testing.
 # Were initially chosen randomly such that one of the city recordings was used for validation and one of each category was used for testing.
 val_recordings = [('city', '2011_09_26_drive_0005_sync')]
-test_recordings = [('city', '2011_09_26_drive_0104_sync'), ('residential', '2011_09_26_drive_0079_sync'), ('road', '2011_09_26_drive_0070_sync')]
+test_recordings = [('city', '2011_09_26_drive_0104_sync'), ('residential', '2011_09_26_drive_0079_sync'),
+                   ('road', '2011_09_26_drive_0070_sync')]
 
 if not os.path.exists(DATA_DIR): os.mkdir(DATA_DIR)
+
 
 # Download raw zip files by scraping KITTI website
 def download_data():
@@ -36,7 +37,7 @@ def download_data():
         c_dir = base_dir + c + '/'
         if not os.path.exists(c_dir): os.mkdir(c_dir)
         for i, d in enumerate(drive_list):
-            print str(i+1) + '/' + str(len(drive_list)) + ": " + d
+            print str(i + 1) + '/' + str(len(drive_list)) + ": " + d
             url = "http://kitti.is.tue.mpg.de/kitti/raw_data/" + d + "/" + d + "_sync.zip"
             urllib.urlretrieve(url, filename=c_dir + d + "_sync.zip")
 
@@ -86,10 +87,10 @@ def process_data():
 
 # resize and crop image
 def process_im(im, desired_sz):
-    target_ds = float(desired_sz[0])/im.shape[0]
+    target_ds = float(desired_sz[0]) / im.shape[0]
     im = imresize(im, (desired_sz[0], int(np.round(target_ds * im.shape[1]))))
     d = (im.shape[1] - desired_sz[1]) / 2
-    im = im[:, d:d+desired_sz[1]]
+    im = im[:, d:d + desired_sz[1]]
     return im
 
 
