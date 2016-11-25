@@ -12,9 +12,10 @@ import datetime
 import cv2
 import numpy as np
 from config import *
+import hickle as hkl
 
 
-def _read_data(data_path):
+def read_data(data_path):
     _station_list = os.listdir(data_path)
     _sample_path_list = []
     for _station in _station_list:
