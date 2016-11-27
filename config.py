@@ -8,7 +8,7 @@ descrption:
 """
 import os
 
-DATA_PATH = '/home/meteo/xibin.yue/nowcast_dl/ext_data'
+DATA_PATH = '/home/meteo/xibin.yue/nowcast_dl/ext_data/denoise_dl_newtrain'
 IMAGE_PATH = os.path.join(DATA_PATH, 'denoise_dl_newtrain')
 TRAIN_FILE_PATH = os.path.join(DATA_PATH, 'train')
 VALID_FILE_PATH = os.path.join(DATA_PATH, 'validation')
