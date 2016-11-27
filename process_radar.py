@@ -83,4 +83,4 @@ def read_data(data_path):
 
 
 if __name__ == '__main__':
-    read_data(DATA_PATH)
+    read_data(IMAGE_PATH)
