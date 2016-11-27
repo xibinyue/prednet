@@ -8,7 +8,7 @@ from process_radar import read_data
 class RadarGenerator(Iterator):
     def __init__(self, data_path, nt, batch_size=8, shuffle=False, seed=None,
                  output_mode='error', N_seq=None, dim_ordering=K.image_dim_ordering()):
-        self.X = read_data(data_path)  # X will be like (n_images, nb_cols, nb_rows, nb_channels)
+        self.X = hkl.load(data_path)  # X will be like (n_images, nb_cols, nb_rows, nb_channels)
         self.batch_size = batch_size
         self.dim_ordering = dim_ordering
         self.nt = nt
