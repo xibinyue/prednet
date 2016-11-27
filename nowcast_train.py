@@ -38,7 +38,7 @@ val_file = os.path.join(VALID_FILE_PATH, 'validation.hkl')
 
 # Training parameters
 nb_epoch = 150
-batch_size = 4
+batch_size = 8
 samples_per_epoch = 500
 N_seq_val = 100  # number of sequences to use for validation
 
