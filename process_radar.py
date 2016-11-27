@@ -82,7 +82,7 @@ def read_data(data_path):
     print _train_data.shape
     print _test_data.shape
     hkl.dump(TRAIN, os.path.join(TRAIN_FILE_PATH, 'train.hkl'))
-    hkl.dump(_test_data, os.path.join(VALID_FILE_PATH, 'validation.hkl'))
+    hkl.dump(TEST, os.path.join(VALID_FILE_PATH, 'validation.hkl'))
 
 
 if __name__ == '__main__':
