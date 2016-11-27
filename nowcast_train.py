@@ -66,7 +66,7 @@ prednet = PredNet(stack_sizes, R_stack_sizes,
                   output_mode='error', return_sequences=True)
 
 inputs = Input(shape=(nt,) + input_shape)
-print inputs.shape
+print (nt,) + input_shape
 errors = prednet(inputs)  # errors will be (batch_size, nt, nb_layers)
 errors_by_time = TimeDistributed(Dense(1, weights=[layer_loss_weights, np.zeros(1)], trainable=False), trainable=False)(
     errors)  # calculate weighted error by layer
