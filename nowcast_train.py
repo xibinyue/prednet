@@ -55,12 +55,18 @@ layer_loss_weights = np.expand_dims(layer_loss_weights, 1)
 time_loss_weights = 1. / (nt - 1) * np.ones((nt, 1))
 time_loss_weights[0] = 0
 
+print 'stack_sizes: ', stack_sizes
+print 'R_stack_sizes: ', R_stack_sizes
+print 'A_filt_sizes: ', A_filt_sizes
+print 'Ahat_filt_sizes: ', Ahat_filt_sizes
+print 'R_filt_sizes: ', R_filt_sizes
+
 prednet = PredNet(stack_sizes, R_stack_sizes,
                   A_filt_sizes, Ahat_filt_sizes, R_filt_sizes,
                   output_mode='error', return_sequences=True)
 
 inputs = Input(shape=(nt,) + input_shape)
-print (nt,)+input_shape
+print (nt,) + input_shape
 errors = prednet(inputs)  # errors will be (batch_size, nt, nb_layers)
 errors_by_time = TimeDistributed(Dense(1, weights=[layer_loss_weights, np.zeros(1)], trainable=False), trainable=False)(
     errors)  # calculate weighted error by layer
