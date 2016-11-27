@@ -78,9 +78,11 @@ def read_data(data_path):
     _test_data = _data_crop[index[int(len(index) * TRAIN_RATIO):]]
     TRAIN = _train_data.reshape(_train_data.shape[0] * _train_data.shape[1], _train_data.shape[2], _train_data.shape[3],
                                 1)
+    print TRAIN.shape
     TEST = _test_data.reshape(_test_data.shape[0] * _test_data.shape[1], _test_data.shape[2], _test_data.shape[3], 1)
-    print _train_data.shape
-    print _test_data.shape
+    print TEST.shape
+    # print _train_data.shape
+    # print _test_data.shape
     hkl.dump(TRAIN, os.path.join(TRAIN_FILE_PATH, 'train.hkl'))
     hkl.dump(TEST, os.path.join(VALID_FILE_PATH, 'validation.hkl'))
 
