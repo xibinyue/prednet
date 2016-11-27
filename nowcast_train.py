@@ -44,7 +44,7 @@ N_seq_val = 100  # number of sequences to use for validation
 
 # Model parameters
 nt = 10
-input_shape = (3, 384, 384)
+input_shape = (1, 384, 384)
 stack_sizes = (input_shape[0], 48, 96, 192)
 R_stack_sizes = stack_sizes
 A_filt_sizes = (3, 3, 3)
